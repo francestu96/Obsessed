@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    hostname: web
+    ports:
+      - "5000:5000"
+  db:
+    image: mysql
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: nrBMRNtsLjj3H#
+      MYSQL_DATABASE: leodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Yr%Pq79J6My7wb
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d
+  bot:
+    build: ./xss-bot/
